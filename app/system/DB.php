@@ -10,7 +10,7 @@ class DB  {
     const DB_HOST = '127.0.0.1';
     const DB_USERNAME = 'root';
     const DB_PASSWORD = '';
-    const DB_DATABASE = 'database2';
+    const DB_DATABASE = 'todo.db';
 
 
     private function __construct()

@@ -8,9 +8,9 @@
 
         public function index()
         {
-//            if (!$this->loggedIn()) {
-//                header('Location: index.php?c=login&m=login');
-//            }
+            if (!$this->loggedIn()) {
+                header('Location: index.php?c=login&m=login');
+            }
 
             $this->loadView('dashboard', array());
         }
