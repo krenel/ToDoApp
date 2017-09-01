@@ -10,6 +10,21 @@
             $this->db = DB::getInstance();
         }
 
+        public function getOneAdmin($where = null)
+        {
+            $sql = " SELECT * FROM {$this->table} ";
+            $sql.= "WHERE admin_id = '{$where}'";
+
+            $result = $this->db->query($sql);
+
+            $row = $this->db->translate($result);
+
+            $entity = new $this->entity;
+            $oEntity = $entity->init($row);
+
+            return $oEntity;
+        }
+
         public function getOne($where = null)
         {
             $sql = " SELECT * FROM {$this->table} ";
@@ -196,6 +211,19 @@
                 }
             }
             $sql .= "WHERE id = {$id}";
+
+            $result = $this->db->query($sql);
+
+            if($result === null) {
+                $this->db->error();
+            }
+
+            return true;
+        }
+
+        public function deleteAdmin($id)
+        {
+            $sql = "DELETE FROM {$this->table} WHERE admin_id = {$id}";
 
             $result = $this->db->query($sql);
 

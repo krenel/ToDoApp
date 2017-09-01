@@ -7,12 +7,12 @@
         public function save(Entity $entity)
         {
             $dataInput = array(
-                'username' => $entity->getAdname(),
-                'password' => $entity->getPassword(),
+                'admin_username' => $entity->getAdminUsername(),
+                'admin_password' => $entity->getAdminPassword(),
             );
 
-            if ($entity->getId() > 0) {
-                $this->update($entity->getId(), $dataInput);
+            if ($entity->getAdminId() > 0) {
+                $this->update($entity->getAdminId(), $dataInput);
             } else {
                 $this->create($dataInput);
             }

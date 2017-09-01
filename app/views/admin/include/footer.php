@@ -91,6 +91,7 @@
 <script src="js/retina.js"></script>
 
 <script src="js/custom.js"></script>
+<script src="../public/admin/js/confirm.js"></script>
 
 <?php
 if(isset($js)) {
