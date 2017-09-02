@@ -31,8 +31,8 @@
         $data = array();
 
         $insertInfo = array(
-            'username' => '',
-            'password' => '',
+            'admin_username' => '',
+            'admin_password' => '',
         );
 
         $errors = array();

@@ -15,18 +15,25 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <?php if (!isset($_SESSION['user'])) { ?>
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.php?c=loginuser&m=register">Register</a>
                 </li>
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="index.php?c=loginuser&m=login">Log In</a>
+                </li>
+                <?php } ?>
+                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == 1 && isset($_SESSION['user'])) { ?>
+                <li>
+                    <a>Hello <?php echo $_SESSION['user']->getUserFirstName().' '.$_SESSION['user']->getUserLastName() ?></a>
                 </li>
                 <li>
-                    <a href="post.html">Sample Post</a>
+                    <a href="index.php?c=lists&m=index">TO DO</a>
                 </li>
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="index.php?c=loginuser&m=logout">Log out</a>
                 </li>
+                <?php } ?>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
