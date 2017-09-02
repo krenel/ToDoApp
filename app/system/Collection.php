@@ -25,6 +25,21 @@
             return $oEntity;
         }
 
+        public function getOneUser($where = null)
+        {
+            $sql = " SELECT * FROM {$this->table} ";
+            $sql.= "WHERE user_id = '{$where}'";
+
+            $result = $this->db->query($sql);
+
+            $row = $this->db->translate($result);
+
+            $entity = new $this->entity;
+            $oEntity = $entity->init($row);
+
+            return $oEntity;
+        }
+
         public function getOne($where = null)
         {
             $sql = " SELECT * FROM {$this->table} ";
@@ -210,7 +225,12 @@
                     $sql.="{$key}='{$value}', ";
                 }
             }
-            $sql .= "WHERE id = {$id}";
+
+            if ($this->table == 'users') {
+                $sql .= "WHERE user_id = {$id}";
+            } else {
+                $sql .= "WHERE id = {$id}";
+            }
 
             $result = $this->db->query($sql);
 
@@ -224,6 +244,19 @@
         public function deleteAdmin($id)
         {
             $sql = "DELETE FROM {$this->table} WHERE admin_id = {$id}";
+
+            $result = $this->db->query($sql);
+
+            if($result === null) {
+                $this->db->error();
+            }
+
+            return true;
+        }
+
+        public function deleteUser($id)
+        {
+            $sql = "DELETE FROM {$this->table} WHERE user_id = {$id}";
 
             $result = $this->db->query($sql);
 

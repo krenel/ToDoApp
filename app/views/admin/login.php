@@ -59,13 +59,13 @@
                     <fieldset>
                         <div class="input-prepend" title="Username">
                             <span class="add-on"><i class="halflings-icon user"></i></span>
-                            <input class="input-large span10" name="admin_username" id="username" type="text" placeholder="type username"/>
+                            <input class="input-large span10" name="user_email" id="username" type="email" placeholder="type email"/>
                         </div>
                         <div class="clearfix"></div>
 
                         <div class="input-prepend" title="Password">
                             <span class="add-on"><i class="halflings-icon lock"></i></span>
-                            <input class="input-large span10" name="admin_password" id="password" type="password" placeholder="type password"/>
+                            <input class="input-large span10" name="user_password" id="password" type="password" placeholder="type password"/>
                         </div>
                         <div class="clearfix"></div>
 

@@ -8,21 +8,25 @@ class LoginController extends Controller
 
     public function login(){
 
-        $adminsCollection = new AdminsCollection();
+        $usersCollection = new UsersCollection();
 
         $errors = array();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['admin_username'])) {
-                if (isset($_POST['admin_username']) && isset($_POST['admin_password']) && strlen($_POST['admin_username']) > 3 && strlen($_POST['admin_password']) > 3) {
-                    $admin_password = sha1($_POST['admin_password']);
+            if (isset($_POST['user_email'])) {
+                if (isset($_POST['user_email']) && isset($_POST['user_password']) && strlen($_POST['user_email']) > 3 && strlen($_POST['user_password']) > 3) {
+                    $user_password = sha1($_POST['user_password']);
 
-                    $admin_username = htmlspecialchars(trim($_POST['admin_username']));
-                    $where = array('admin_username' => $admin_username);
+                    $admin_username = htmlspecialchars(trim($_POST['user_email']));
+                    $where = array('user_email' => $admin_username);
 
-                    $result = $adminsCollection->getAll($where);
+                    $result = $usersCollection->getAll($where);
 
-                    if ($result != null && $result[0]->getAdminpassword() == $admin_password) {
+//                    echo "<pre>";
+//                    var_dump($result); die;
+//                    echo "<pre/>";
+
+                    if ($result != null && $result[0]->getUserPassword() == $user_password  && $result[0]->getUserAdminStatus() == true) {
                         $_SESSION['admin'] = $result[0];
                         $_SESSION['logged_in'] = 1;
                         header('Location: index.php?c=dashboard');

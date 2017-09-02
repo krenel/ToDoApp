@@ -14,6 +14,10 @@ class UsersCollection extends Collection
             'user_admin_status' => $entity->getUserAdminStatus(),
         );
 
+//        echo "<pre>";
+//        var_dump(boolval($entity->getUserId() > 0)); die;
+//        echo "<pre/>";
+
         if ($entity->getUserId() > 0) {
             $this->update($entity->getUserId(), $dataInput);
         } else {
