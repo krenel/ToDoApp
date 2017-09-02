@@ -40,6 +40,36 @@
             return $oEntity;
         }
 
+        public function getOneList($where = null)
+        {
+            $sql = " SELECT * FROM {$this->table} ";
+            $sql.= "WHERE list_id = '{$where}'";
+
+            $result = $this->db->query($sql);
+
+            $row = $this->db->translate($result);
+
+            $entity = new $this->entity;
+            $oEntity = $entity->init($row);
+
+            return $oEntity;
+        }
+
+        public function getOneTask($where = null)
+        {
+            $sql = " SELECT * FROM {$this->table} ";
+            $sql.= "WHERE task_id = '{$where}'";
+
+            $result = $this->db->query($sql);
+
+            $row = $this->db->translate($result);
+
+            $entity = new $this->entity;
+            $oEntity = $entity->init($row);
+
+            return $oEntity;
+        }
+
         public function getOne($where = null)
         {
             $sql = " SELECT * FROM {$this->table} ";
@@ -228,7 +258,9 @@
 
             if ($this->table == 'users') {
                 $sql .= "WHERE user_id = {$id}";
-            } else {
+            } else if($this->table == 'tasks') {
+                $sql .= "WHERE task_id = {$id}";
+            }else  {
                 $sql .= "WHERE id = {$id}";
             }
 

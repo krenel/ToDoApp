@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="public/template/css/clean-blog.min.css" rel="stylesheet">
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
     <?php
     if(isset($css)) {
         if(is_array($css)){

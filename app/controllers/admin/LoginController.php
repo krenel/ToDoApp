@@ -22,10 +22,6 @@ class LoginController extends Controller
 
                     $result = $usersCollection->getAll($where);
 
-//                    echo "<pre>";
-//                    var_dump($result); die;
-//                    echo "<pre/>";
-
                     if ($result != null && $result[0]->getUserPassword() == $user_password  && $result[0]->getUserAdminStatus() == true) {
                         $_SESSION['admin'] = $result[0];
                         $_SESSION['logged_in'] = 1;
