@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog</title>
+    <title>To Do</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="public/template/css/bootstrap.min.css" rel="stylesheet">

@@ -29,24 +29,25 @@
             </div>
         </div>
         <div class="row">
-                <table border="3">
+                <table border="1">
                     <thead>
                     <tr>
                         <th>Status</th>
                         <th>Description</th>
                         <th>Deadline</th>
+                        <th>Actions</th>
                     </thead>
                     <tbody>
-                        <?php var_dump($tasks) ?>
                         <?php foreach($tasks as $task) { ?>
                             <tr>
                                 <?php if ($task->getTaskStatus() == false) {?>
-                                    <td><button value="<?php echo $task->getTaskId()?>" class="btn btn-danger task_status">In progres</button></td>
+                                    <td><button value="<?php echo $task->getTaskId()?>" class="btn btn-warning task_status">In progres</button></td>
                                 <?php } else { ?>
                                     <td><button value="<?php echo $task->getTaskId()?>" class="btn btn-success task_status">Done</button></td>
                                 <?php } ?>
                                 <td><?php echo $task->getTaskDescription() ?></td>
                                 <td><?php echo $task->getTaskDeadline(); ?></td>
+                                <td><a href="index.php?c=lists&m=deleteTask&id=<?php echo $task->getTaskId()?>" class="btn btn-danger task_status">Delete</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

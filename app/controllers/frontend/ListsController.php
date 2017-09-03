@@ -7,8 +7,6 @@
             
             $usersLists = $listsCollection->getAll(['list_user_id' => $_SESSION['user']->getUserId()]);
 
-//            var_dump($usersLists);
-
             $data['lists'] = $usersLists;
 
             $this->loadFrontView('lists/index',$data);
@@ -51,7 +49,6 @@
             $data['errors'] = $errors;
 
             $this->loadFrontView('lists/create',$data);
-
         }
 
         public function listTitileValidation($input)
@@ -108,8 +105,6 @@
             
             $task = $taskCollection->getOneTask($taskId);
 
-//            var_dump((int) $task->getTaskStatus());
-
             if ((int) $task->getTaskStatus()) {
                 $task->setTaskStatus(0);
             } else {
@@ -121,4 +116,48 @@
             echo json_encode($task);
         }
 
+        public function export()
+        {
+            $listId = $_GET['id'];
+            $listName = $_GET['name'];
+
+            $listsCollection = new ListsCollection();
+
+            $listsCollection->exportToXLS($listId,$listName);
+        }
+
+        public function delete()
+        {
+            if(!isset($_GET['id'])) {
+                header('Location: index.php?c=lists&m=index');
+            }
+
+            $listId = $_GET['id'];
+
+            $listsCollection = new ListsCollection();
+
+            $list = $listsCollection->getOneList($listId);
+            $list->setListDeleteStatus(1);
+
+            $listsCollection->save($list);
+
+            header('Location: index.php?c=lists&m=index');
+        }
+
+        public function deleteTask()
+        {
+            if(!isset($_GET['id'])) {
+                header('Location: index.php?c=lists&m=index');
+            }
+
+            $taskId = $_GET['id'];
+
+            $tasksCollection = new TasksCollection();
+
+            $task = $tasksCollection->getOneTask($taskId);
+
+            $tasksCollection->deleteTask($task->getTaskId());
+
+            header('Location: index.php?c=lists&m=index');
+        }
     }

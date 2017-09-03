@@ -29,8 +29,20 @@
                     </div>
                 </td>
                 <td>
+                    <?php if ($list->getListDeleteStatus() == true) { ?>
+                    <div class="form-group col-xs-12">
+                        <a type="submit" class="btn btn-danger">Deleting...</a>
+                    </div>
+                    <?php } else { ?>
                     <div class="form-group col-xs-12">
                         <a href="index.php?c=lists&m=delete&id=<?php echo $list->getListId(); ?>" type="submit" class="btn btn-danger">Delete</a>
+                    </div>
+                    <?php } ?>
+
+                </td>
+                <td>
+                    <div class="form-group col-xs-12">
+                        <a href="index.php?c=lists&m=export&id=<?php echo $list->getListId(); ?>&name=<?php echo $list->getListTitle(); ?>" class="btn btn-info">Download</a>
                     </div>
                 </td>
             </tr>

@@ -6,8 +6,9 @@
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
                     <li><a href="index.php?c=dashboard"><i class="icon-home"></i><span class="hidden-tablet">Home</span></a></li>
-                    <li><a href="index.php?c=admins&m=index"><i class="icon-user"></i><span class="hidden-tablet">Administrators</span></a></li>
                     <li><a href="index.php?c=users&m=index"><i class="icon-user"></i><span class="hidden-tablet">Users</span></a></li>
+                    <li><a href="index.php?c=manage&m=index"><i class="icon-list"></i><span class="hidden-tablet">Lists for Deleting</span></a></li>
+                    <li><a href="index.php?c=manage&m=lists"><i class="icon-list"></i><span class="hidden-tablet">Lists</span></a></li>
                 </ul>
             </div>
         </div>
