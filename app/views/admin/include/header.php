@@ -1,29 +1,3 @@
-<?php
-//session_start();
-////require_once('connection.php');
-//require_once('function.php');
-////require_once('FileUpload.php');
-////require_once(__DIR__.'/DB.php');
-//
-//function __autoload ($classname)
-//{
-//    if (strpos($classname, 'Entity')) {
-//        require (__DIR__.'/../../common/models/entities/'.$classname.'.php');
-//    } elseif (strpos($classname, 'Collection')) {
-//        require (__DIR__.'/../../common/collections/'.$classname.'.php');
-//    } else {
-//        require (__DIR__.'/../../common/system/'.$classname.'.php');
-//    }
-//}
-//
-//require_once ('D:/xampp/htdocs/obshtina Perushtitsa/common/collections/AdminCollection.php');
-//
-////D:\xampp\htdocs\obshtina Perushtitsa\common\collections
-//
-////$db = DB::getInstance();
-//
-//?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

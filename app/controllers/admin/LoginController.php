@@ -38,7 +38,6 @@ class LoginController extends Controller
 
         $data['errors'] = $errors;
 
-
         $this->loadView('login', $data);
     }
 
@@ -48,5 +47,4 @@ class LoginController extends Controller
         unset($_SESSION['logged_in']);
         header('Location: index.php?c=login&m=login');
     }
-
 }

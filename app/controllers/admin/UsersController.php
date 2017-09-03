@@ -110,8 +110,6 @@
                     $user->setUserPassword(sha1($insertInfo['user_password']));
                     $user->setUserAdminStatus($insertInfo['user_admin_status']);
 
-//                    var_dump($user);die;
-
                     $collection = new UsersCollection();
                     $collection->save($user);
 
@@ -123,7 +121,6 @@
             $data['errors'] = $errors;
 
             $this->loadView('users/update', $data);
-
         }
 
 
@@ -150,10 +147,6 @@
             } else {
                 $user->setUserAdminStatus(true);
             }
-
-//            echo "<pre>";
-//            var_dump($user->getUserAdminStatus()); die;
-//            echo "<pre/>";
 
             $usersCollection->save($user);
             header('Location: index.php?c=users&m=index');

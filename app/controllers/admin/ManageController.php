@@ -16,10 +16,6 @@ class ManageController extends Controller{
 
         $lists = $listsConllection->getListsByStatus(['users_lists.list_delete_status' => 1]);
 
-//        echo "<pre>";
-//        var_dump($lists); die;
-//        echo "<pre/>";
-
         $data['lists'] = $lists;
 
         $this->loadView('manage/index', $data);

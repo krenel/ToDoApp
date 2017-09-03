@@ -67,11 +67,6 @@
     {
         $errors = array();
 
-//        var_dump(boolval(!isset($input['admin_username'])));
-//        var_dump(boolval(strlen(trim($input['admin_username']))) > 4);
-//        var_dump(boolval(strlen(trim($input['admin_username']))) < 15);
-//        var_dump(boolval((!preg_match("/^[a-zA-Z0-9 -]*$/", $input['admin_username']))));
-
         if(!isset($input['admin_username']) || strlen(trim($input['admin_username'])) < 4 || strlen(trim($input['admin_username'])) > 15  || (!preg_match("/^[a-zA-Z0-9]*$/", $input['admin_username']))) {
             $errors['admin_username'] = 'Incorrect username';
         }

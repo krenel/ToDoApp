@@ -14,6 +14,4 @@
 
             $this->loadView('dashboard', array());
         }
-
-
     }

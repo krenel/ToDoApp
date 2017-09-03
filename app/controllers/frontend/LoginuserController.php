@@ -35,7 +35,6 @@ class LoginuserController extends Controller
         $data['errors'] = $errors;
 
         $this->loadFrontView("users/login",$data);
-
     }
 
 
@@ -93,5 +92,4 @@ class LoginuserController extends Controller
         unset($_SESSION['logged_in']);
         header('Location: index.php?c=index&m=index');
     }
-
 }
